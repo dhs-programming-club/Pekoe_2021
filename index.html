@@ -1,0 +1,1824 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.1.3.2 (Windows)"/>
+	<meta name="created" content="2021-05-25T18:32:03.058000000"/>
+	<meta name="changed" content="2021-05-25T18:36:31.953000000"/>
+	<style type="text/css">
+		@page { size: 17in 11in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		td p { orphans: 0; widows: 0; background: transparent }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		a:visited { color: #800000; so-language: zxx; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">PekoeCTF
+2021 Writeup:<br/>
+<br/>
+<font size="3" style="font-size: 12pt">Planning/Overview
+Table:</font></span></b></font></font></font></p>
+<table cellpadding="2" cellspacing="2">
+	<col width="141"/>
+
+	<col width="120"/>
+
+	<col width="59"/>
+
+	<col width="207"/>
+
+	<col width="432"/>
+
+	<col width="352"/>
+
+	<col width="129"/>
+
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center">
+			<a href="https://github.com/dhs-programming-club/Pekoe_2021/tree/main/PekoeCTF%202021%20Problem%20Files"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">Problem
+			Name (link to files)</span></span></u></span></font></font></span></font></span></a></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Category</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Point
+			Value</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Flag</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Description</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Hint</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="center" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Author</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			Slack point</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">1</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{english_breakfast_d0dfb0}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Join
+			our slack to find teams, hangout, or even DM the mods for hints</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">HEY
+			SLACKER, WHY HAVEN'T YOU DONE THIS ALREADY?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Glass
+			[glass.docx]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{chai_a17c36}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Somehow
+			I feel like there is more to this document than meets the eye</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Try
+			checking inside</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Fruit
+			[fruit.pages]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{fruits_d'alsace_634adc}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Somehow
+			I feel like there is more to this document than meets the eye</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Try
+			checking inside</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">(a
+			grep problem)</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Ezra</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Not
+			a Nintendo64 [notendo64.txt]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{earl_grey_54d520}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			asked my Uncle for a Nintendo64 and he replied with this... This
+			doesn't look like normal text</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">it
+			should be pretty straight forward to convert this to text</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><i><span style="background: transparent">NAME
+			THAT LANGUAGE!</span></i></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Take
+			this quiz to win the flag (website here)</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby
+			and John?</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Hello
+			World [HelloWorld.zip]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Web
+			Exploitation</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{peach_ginger_46a962}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">This
+			is my hello world site. It's very impressive</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">What
+			makes up a site?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">John</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Making
+			hash browns? [hash]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">732f4459fc7476646640910b855db1d7</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Someone
+			told me to hash this file but I don't think I can do that because
+			I am not a very good chef. Can you help me?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			flag is not in the usual format</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">eS
+			Que eL [fancylogin.html]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Web
+			Exploitation</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{tisane_89f4n6}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Can
+			you help me login to this site?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Do
+			you speak spanish?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Owen</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Rolling,
+			rolling on a CTF [playlist.txt]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{cranberry_autumn_f312ac}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Find
+			the flag</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">You
+			could probably do it manually but it might be easier if you clear
+			away the garbage</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Driving
+			a Tractor [tractor.java]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Reverse
+			Engineering</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{ruby_black_39k8ds}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Can
+			you put this tractor in reverse? It's license plate is
+			&quot;s&curren;h&micro;nr&egrave;h~&aelig;u&Icirc;x&eth;e1|&aelig;bWeko&Ograve;d&ordm;f,n&copy;bC6&THORN;&lt;Fn&copy;;g/v&otilde;&quot;</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">You
+			may want to write a program that can turn the license plate into
+			the flag.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Owen</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Ceaser1.txt</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cryptography</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">25</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{name_of_the_exploration_rover}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			am doing a project on a planet, will you help me?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#3c4043"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Francesca</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Ceaser2.txt</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cryptography</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{nickname_of_mars}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">goes
+			with 1</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Keyword
+			is the answer of Ceaser1</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#3c4043"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Francesca</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cesear3.txt</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cryptography</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">75</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{lets_go_live_in_mars}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">goes
+			with 1</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">keyword
+			is the answer of Caesar 2</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#3c4043"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Francesca</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Tar
+			and feather [500.tar.gz]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{moroccan_mint_dc55ea}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			wanted to save some disk space so I compressed the flag</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			may have compressed it 500 times</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right">
+			<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Try
+			my cookie cookie
+			[</span></span></span></font></font></span></font></span><a href="https://pekoe-try-my-cookie-cookie.herokuapp.com/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-try-my-cookie-cookie.herokuapp.com/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">]</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Web
+			Exploitation</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{chamomile_dba943}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Only
+			99 cents plus tax (For testing: you have to run this one in
+			firefox if running locally)</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			title says it all</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">John</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">A
+			very broken image [broken_image.png]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{oolong_c4c13a}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">This
+			image file has the flag, but I can't open it</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">If
+			only it was this easy to repair the world's problems in a hex
+			editor</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: #000000">??????</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right">
+			<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Bitcoin
+			is very volitile
+			[</span></span></span></font></font></span></font></span><a href="https://pekoe-bitcoin-is-very-volatile.herokuapp.com/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-bitcoin-is-very-volatile.herokuapp.com/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">]</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Web
+			Exploitation</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{passionfruit_mango_b5048e}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Bitcoin
+			is very volatile today.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">There
+			are a few types of requests</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">John</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right">
+			<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Dogecoin
+			to the moon [</span></span></span></font></font></span></font></span><a href="https://pekoe-dogecoin-to-the-moon.herokuapp.com/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-dogecoin-to-the-moon.herokuapp.com/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">]</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Web
+			Exploitation</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{orange_50b3c2}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">&quot;One
+			word: Doge&quot; - Elon Musk's Twitter</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Next
+			stop: Dogecoin moon </span></span></span></font></font></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><b><span style="background: transparent">base</span></b></span></font></font></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="background: transparent">
+			</span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">(For
+			testing: you have to run this one in firefox if running locally)</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">John</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right">
+			<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Pekoemon
+			[</span></span></span></font></font></span></font></span><a href="https://pekoe-pekoemon.herokuapp.com/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-pekoemon.herokuapp.com/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">]</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Web
+			Exploitation</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{refresher_mint_bab305}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Gotta
+			catchem all</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">You're
+			going to want to use a program called Postman for this problem</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">John</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Where's
+			my backup? [backup2.img]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{mango_fruit_26a9f2}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			asked a friend to backup a very important file on my flash drive,
+			but instead of sending me the file they sent me this strange thing</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Knowing
+			the filesystem (and where it starts) would be helpful</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">(An
+			RSA problem)</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cryptography</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Secret
+			SSH</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			may have used the default password on my tiny fruit themed
+			computer but atleast I secured it by changing the port...
+			Right????</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">First
+			you have to find what port the service is actually on, then you
+			have to &quot;guess&quot; the username and password - many of you
+			likely know what it is already.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Dr.Java
+			[drjava.jar]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{darjeeling_fa5bd8}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Dr.Java
+			knows all, including the flag</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			hid the flag somewhere in this IDE</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">normal
+			gcode [flag.gcode]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{lemon_7567a}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			wanted to 3D print the flag</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			said this gcode is normal, but I didn't say what kind of normal it
+			was. If you are having issues it might help to check that</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">the
+			missing link</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{Wulong_56bfda}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			flag is on my website. It should be easy enough to get there
+			[the_missing_link.jpg]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">How
+			could you get a link from a picture?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">the
+			magic colors</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">100</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{tea_476a}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">A
+			friend sent me this strange image. I wonder what it could mean.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">How
+			could you get a flag (text) from this picture. If you seem to be
+			on the right track but are having issues ask in Slack, there may
+			be some inconsistency</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">inception</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Arduino_Bitmap
+			[flag.ino]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">200</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{mint_a128}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			flag is embedded somewhere in this Arduino program</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">You
+			don't need any special hardware for this.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			droid you are looking for [flag_app.apk]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">200</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{rooibos_1afcb5}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">This
+			app isn't the droid you are looking for, or is it?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">If
+			you don't have an Android phone setting up a VM might be helpful,
+			but shouldn't be necessary</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Super
+			Secure Gcode? [flag.gcode.cubepro]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cryptography</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">200</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{brisk_berry_f17b23}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; text-decoration: none">
+			<font color="#000000"><span style="background: transparent"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">I
+			just got a &quot;new&quot; 3D printer that uses encrypted gcode
+			for some reason???? &macr;\_(</span></span></font></font><font face="NSimSun"><font size="2" style="font-size: 10pt"><span lang="zh-CN"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">&#12484;</span></span></font></font></span></font></font><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">)_/&macr;
+			anyways I tried to create a file for it and hid the flag somewhere
+			in it</span></span></font></font></span></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">You
+			need to get it down to plain text. The file uses a blowfish
+			scheme, some tools exist to make this trivial. If you are still
+			stuck the file extension might help</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">dictionary
+			skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Cryptography</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">200</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{goji_berry_b1faf3}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">can
+			you decode this message:
+			U2FsdGVkX189XzZma1XalqGG0jwB8IERFj8UuzlFrcFwp727lETxrUuJP06LaLWF</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">in
+			some ways this is similar to the super secure gcode problem... The
+			message is encrypted with DES</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Recovery
+			Image image recovery [lineage-17.1-recovery-polaris.img]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">200</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{ginger_76adb5}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Can
+			you help me recover an image from my recovery image?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">This
+			is not a standard disk image</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Noise
+			1 [output.wav]</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">150</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{tisane_14f7a9}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">When
+			my friend was driving through Kansas City they recorded this off
+			the radio on to a cassette, what could it mean?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">file
+			is encoded in mono with a framerate of 9600 Hz.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right">
+			<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Noise
+			2[</span></span></span></font></font></span></font></span><a href="http://flag.au/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">flag.au</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">]</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Forensics</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">250</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{tisane_a25ab9}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Even
+			though it may seem like I am just hamming it up you simply can't
+			ignore the fax. The flag is in this file somewhere</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">if
+			you are struggling then the settings I encoded it with are as
+			follows. The carrier is 1900hz the deviation is 400hz, modulation
+			FM, filter middle, apt start (5s) /apt stop 300hz IPM 120, phasing
+			line 20, normal, mono</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right">
+			<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Captcha
+			the flag [</span></span></span></font></font></span></font></span><a href="https://pekoe-captcha-the-flag.herokuapp.com/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-captcha-the-flag.herokuapp.com/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">]</span></span></span></font></font></span></font></span></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">General
+			Skills</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">350</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">pekoe{chamomile_mango_cef460}</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">This
+			website needs a 3 digit pin to login... that shouldn't be too hard
+			to brute force, except for the pesky captcha</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Maybe
+			you can teach your computer to read the captcha...</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">John
+			&amp; Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">sudo
+			random? -1</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Reverse
+			Engineering</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">200</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">0.8229855101</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">a
+			friend, who lives in a house on Wichmann Hill, told me that they
+			could generate random numbers. They have 3 seeds that are each
+			100. They want me to guess the 5th random number</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">the
+			number (the flag) is between 0 and 1 and should have at least 10
+			sig figs</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">sudo
+			random? -2</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Reverse
+			Engineering</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">250</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#212529"><font face="Consolas, sans-serif"><font size="2" style="font-size: 10pt"><span style="background: transparent">720469842</span></font></font></font></p>
+			<p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">My
+			friend said was very impressed that I guessed their random number,
+			now they want me to guess the seed. They generated the following
+			output.</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">The
+			seeds are between 0-999&nbsp;</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Toby</span></font></font></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Easy_Java</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">Reverse
+			Engineering</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">50</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">832807</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">I
+			found this strange program, and a log of the output from when it
+			first ran. The program outputed 895205. What was the input?</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">This
+			should be a pretty straightforward problem</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">MAX
+			SCORE</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p align="right" style="font-variant: normal; font-style: normal; font-weight: normal; text-decoration: none">
+			<font color="#000000"><font face="Arial"><font size="2" style="font-size: 10pt"><span style="background: transparent">4151</span></font></font></font></p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+		<td style="border: 1px solid #cccccc; padding: 0.03in"><p><br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p><br/>
+<br/>
+
+</p>
+<p><font size="5" style="font-size: 18pt"><b>Additional Notes:</b></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">1
+- The Slack Point.&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Join
+slack, find the pinned message in #announcements, solve the
+challenge. Serves as a way to encourage members to join the slack and
+familizare them with the CTFd portal and the flag format&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">2
+- Glass</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Change
+the .docx file to .zip and extract. Find the flag file. Tests
+knowledge of file extensions.&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">3-
+Fruit</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Change
+the .pages file to .zip and extract. Companion problem to glass, aims
+to make it the same level of difficulty for people familiar with Mac
+or PC&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">4
+- Not a Nintendo 64</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Decode
+the base64 text. This can be done with an online tool.</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">5
+- Hello World&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+inspect element to find the three pieces of the flag in the html,
+CSS, and JS.&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">6
+- Making Hash Browns&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Hash
+the provided text using MD5&nbsp;</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">7
+- eS Que eL</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">SQL
+Injection use -&nbsp; &lsquo; or 1=1#</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">8
+- Rolling, rolling on a CTF&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+find and replace to identify the correct link - flag is in
+description&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">9
+- Driving a tractor&nbsp;&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Write
+a program that takes the &ldquo;license plate&rdquo;, and outputs
+every other symbol, but shifted up 3 places in ASCII, which should
+give the flag.</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">10
+- Caesar0.txt&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+an online Caesar cipher decoded (the shift is 11)&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">11
+- Caesar1.txt&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">To
+be filled by fini&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">12
+- Caesar2.txt&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">To
+be filled by fini&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">13
+- Caesar3.txt&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">To
+be filled by fini&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">14
+- Tar and feather&nbsp;&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+a script (bash is IMO the easiest, but I have seen people do it with
+Python or even Java) to untar all the files.&nbsp;</span></font></font></font></p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Example
+script: </span></span></span></font></font></span></font></span><a href="https://github.com/dhs-programming-club/Pekoe_2021/blob/main/tar.sh"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">here</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="font-weight: normal"><span style="background: transparent">&nbsp;</span></span></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">15
+- Pekoemon&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<ol>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">You&rsquo;re
+	going to need to install Postman (or some other program for
+	analysing network requests)</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Once
+	Postman is installed and running go to &ldquo;file&rdquo; in the top
+	right corner and select &ldquo;new tab&rdquo;</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">A
+	new tab should appear with a search bar that says &ldquo;Enter
+	request URL&rdquo;</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; line-height: 138%; background: transparent">
+	<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">In
+	the search bar enter &ldquo;</span></span></span></font></font></span></font></span><a href="https://pekoe-pekoemon.herokuapp.com/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-pekoemon.herokuapp.com/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">&rdquo;,
+	set the request type to post, and click send</span></span></span></font></font></span></font></span></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Now
+	click on the &ldquo;Headers&rdquo; tab above where the HTML output
+	appears</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">The
+	flag should appear with the corresponding key &ldquo;Flag&rdquo;</span></font></font></font></p>
+</ol>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">16
+- A very broken image&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">-Basically
+unsolvable (see
+</span></span></span></font></font></span></font></span><a href="https://github.com/bhscomputerscienceclub/ctf-writeups/tree/master/pekoe/2021"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://github.com/bhscomputerscienceclub/ctf-writeups/tree/master/pekoe/2021</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">)&nbsp;</span></span></span></font></font></span></font></span></p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Sorry,
+it didn&rsquo;t end up getting properly tested. The unbroken image is
+</span></span></span></font></font></span></font></span><a href="https://github.com/dhs-programming-club/Pekoe_2021/blob/main/broken_image%20(copy%201).png"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">here</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="font-weight: normal"><span style="background: transparent">
+</span></span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">so
+you can see what the unaltered headers are</span></span></span></font></font></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">17
+- Try my cookie cookie&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Check
+the cookies, and there should be a cookie with the name flag, and the
+value of the flag</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">18
+- Dogecoin to the Moon</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<ol>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Under
+	cookies there will be a cookie with the name &ldquo;important-information&rdquo;</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">This
+	cookies value is encoded in base64, and if you decode it you&rsquo;ll
+	get the following JSON: {dogecoin-target: &quot;$1&quot;}</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Change
+	the target from &quot;$1&quot; to &quot;moon&quot;, re-encode it and
+	set the cookie to the new value</span></font></font></font></p>
+	<li><p style="margin-bottom: 0in; border: none; padding: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; background: transparent; text-decoration: none">
+	<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Reload
+	the page, and there should be a cookie with the flag</span></font></font></font></p>
+</ol>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">19
+- Captcha the Flag</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">To
+solve this problem you need to train a basic image recognition
+algorithm to solve the captcha each time, and then with that brute
+force the password -&gt; or exploit a design flaw in the problem (see
+</span></span></span></font></font></span></font></span><a href="https://github.com/bhscomputerscienceclub/ctf-writeups/tree/master/pekoe/2021"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://github.com/bhscomputerscienceclub/ctf-writeups/tree/master/pekoe/2021</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">)</span></span></span></font></font></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">20
+- Bitcoin is very Volatile</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">In
+index.js you&rsquo;ll see the following XHTTP request</span></span></font></font></span></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">`</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">var
+xhttp = new XMLHttpRequest();</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">xhttp.onreadystatechange
+= function() {</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">if
+(this.readyState == 4 &amp;&amp; this.status == 200) {</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">if(xhttp.responseText
+== 'true'){</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">console.log('Bitcoin
+is very volatile today');</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">}</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">else{</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">console.log(xhttp.responseText);</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">}</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">}</span></span></font></font></span></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">};</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">xhttp.open(&quot;GET&quot;,
+&quot;./is-bitcoin-volatile&quot;, true);</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">xhttp.send();</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">`</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Copy
+that code into the inspect element console, change the GET to POST,
+press enter, and the flag should log. You can also solve this problem
+by sending a post request to
+&ldquo;</span></span></span></font></font></span></font></span><a href="http://pekoe-bitcoin-is-very-volatile.herokuapp.com/is-bitcoin-volatile"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://pekoe-bitcoin-is-very-volatile.herokuapp.com/is-bitcoin-volatile</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="font-weight: normal"><span style="background: transparent">&rdquo;
+</span></span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">in
+postman</span></span></span></font></font></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">21
+- Where&rsquo;s my backup</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Mount
+the image file by using fdisk -l to find out the correct details and
+then using mount -o loop...</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">22
+- Dr.Java!</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Rename
+to .zip and open&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">23
+- Normal gcode</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+a gcode viewer to see the flag drawn out&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">24
+- The missing link</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Reverse
+image search with Google or Bing&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">25
+- The magic colors&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+a color picker to get the RGB values for the colors, convert to
+ascii, get flag&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">26
+- Arduino Bitmap</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Convert
+the image array to a bitmap to reveal the flag&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">27
+- The Droid you are looking for?</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Either
+install the APK on android and use &ldquo;activity launcher&rdquo; to
+open the flag screen, or use an APK deconstruction tool to extract
+the flag png&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">28
+- Super Secure Gcode</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Use
+either </span></span></span></font></font></span></font></span><a href="https://groups.google.com/g/kisslicer-refugee-camp/c/ZMuIrtn5Mfo?pli=1"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">codeX</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="font-weight: normal"><span style="background: transparent">
+</span></span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">or
+</span></span></span></font></font></span></font></span><a href="https://github.com/fritzw/cube-utils"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">cube-utils</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="font-weight: normal"><span style="background: transparent">
+</span></span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">in
+order to decrypt the gcode. Flag is at top of file in plain text.&nbsp;</span></span></span></font></font></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">29
+- Dictionary skills</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+rockyou.txt with john the ripper or similar tool to solve for flag&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">30
+- Recovery image image recovery&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Unpack
+the recovery image using a recovery image unpacking tool such as the
+one linked here
+(</span></span></span></font></font></span></font></span><a href="https://forum.xda-developers.com/t/tutorial-edit-recovery-ramdisk-change-images-etc-n00b-friendly-tuto.2491791/"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">https://forum.xda-developers.com/t/tutorial-edit-recovery-ramdisk-change-images-etc-n00b-friendly-tuto.2491791/</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">)</span></span></span></font></font></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="4" style="font-size: 15pt"><span style="font-style: normal"><b><span style="background: transparent">31
+- Noise 1</span></b></span></font></font></span></font></span></p>
+<p style="margin-bottom: 0in; line-height: 138%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+pyKCS or other KCS decoder tool to decode the flag text&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">32
+- Noise 2</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+Hamfax or other WEFAX-IOC576 decoder to get the image</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">33
+- Sudo Random? - 1&nbsp;&nbsp;</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Use
+a wichmann hill algorithm with each seed set to 100. Enter the 5th
+number generated. (random note. This problem was inspired by </span></span></span></font></font></span></font></span><a href="https://www.youtube.com/watch?v=1hs451PfFzQ"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">this
+video</span></span></u></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">)</span></span></span></font></font></span></font></span></p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent">Example
+algorithm is </span></span></span></font></font></span></font></span><a href="https://github.com/dhs-programming-club/Pekoe_2021/blob/main/Random.java"><span style="font-variant: normal"><font color="#1155cc"><span style="text-decoration: none"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><u><span style="font-weight: normal"><span style="background: transparent">here</span></span></u></span></font></font></span></font></span></a></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="4" style="font-size: 15pt"><b><span style="background: transparent">34
+- Sudo Random? - 2</span></b></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">Use
+the algorithm for part 1 to brute force all the possible seeds
+(0-999) for each, compare the first output of the algorithm to the
+first output provided.&nbsp;</span></font></font></font></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 138%"><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><span style="background: transparent">&nbsp;</span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="Arial"><font size="4" style="font-size: 15pt"><span style="font-style: normal"><b><span style="background: transparent">35
+- Easy_Java</span></b></span></font></font></span></font></span></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><font face="Arial"><font size="3" style="font-size: 12pt"><span style="background: transparent">You
+can try to trace the code, but using brute force is definitely
+easier. Loop throw possible inputs to see what gives the correct
+output.&nbsp;</span></font></font></font></p>
+<p style="margin-bottom: 0in; font-variant: normal; line-height: 138%; text-decoration: none">
+<font color="#000000"><span style="background: transparent">&nbsp;&nbsp;</span></font></p>
+<p><br/>
+<br/>
+<br/>
+
+</p>
+</body>
+</html>
